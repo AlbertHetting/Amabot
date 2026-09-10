@@ -1,18 +1,22 @@
-.InnerBox{
+.InnerBox {
   border: 50px solid black;
 }
 
-body h1{
+body h1 {
   font-family: "Pixelify Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: 48px;
   font-weight: 700;
-    background: -webkit-radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 50%;
   font-family: "Pixelify Sans", sans-serif;
   border-radius: 32px;
@@ -22,13 +26,13 @@ input[type=text] {
   box-sizing: border-box;
 }
 
-.Submitter{
-display: flex;
-flex-direction: row;
-gap: 16px;
+.Submitter {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
-.SubmitterButton{
+.SubmitterButton {
   font-family: "Pixelify Sans", sans-serif;
   border-radius: 32px;
   border: 3px solid #eee;
@@ -41,8 +45,47 @@ gap: 16px;
   transition: border 0.25s ease;
 }
 
-.SubmitterButton:hover{
+.SubmitterButton:hover {
   border: 5px solid greenyellow;
   font-weight: bold;
   transition: 0.25s ease;
+}
+
+.answer {
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  width: fit-content;
+  height: fit-content;
+  border-radius: 20px;
+}
+
+.answer p {
+  text-align: left;
+  color: white;
+  font-family: "Pixelify Sans", sans-serif;
+  padding: 20px;
+}
+
+.question p {
+  text-align: left;
+  color: white;
+  font-family: "Pixelify Sans", sans-serif;
+  padding: 20px;
+}
+
+.question {
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 39, 39) 0%,
+    rgb(36, 36, 36) 35%,
+    rgb(121, 121, 121) 100%
+  );
+  width: fit-content;
+  height: fit-content;
+  border-radius: 20px;
 }

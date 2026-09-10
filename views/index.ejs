@@ -53,6 +53,27 @@
                 <input id="question" name="question" type="text" placeholder="Ask me anything!">
                 <button type="submit" class="SubmitterButton">Indsend</button>
             </form>
+             
+              <h2>Spørgsmål fordelt på emner</h2>
+              <ul>
+                <li>Navn: <%= topicStats.navn %></li>
+                <li>Bosted: <%= topicStats.bosted %></li>
+                <li>Fritid: <%= topicStats.fritid %></li>
+              </ul>
+
+            <div>
+                    <% if (error) { %>
+                <p role="alert"><%= error %></p>
+              <% } %>
+            </div>
+             
+            
+            <% for (const message of messages) { %>
+            <article class="<%= message.type %>">
+                <p><%= message.text %> </p>
+           </article>
+           <% } %>
+
         </section>
     </section>
 </body>
