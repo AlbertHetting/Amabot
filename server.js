@@ -1,9 +1,21 @@
 import express from "express";
+import fs from "node:fs/promises";
 
 const app = express();
 const port = 3000;
 
-const messages = [];
+async function loadMessages() {
+  const messages = await fs.readFile("./data/messages.json", "utf8");
+  const messageHistory = JSON.parse(messages);
+
+  return messageHistory;
+}
+
+async function saveMessages(messages) {
+  const json = JSON.stringify(messages, null, 2);
+
+  await fs.writeFile("./data/messages.json", json);
+}
 
 const answers = [
   {
@@ -21,6 +33,17 @@ const answers = [
     keywords: ["fritid", "hobby", "kan lide"],
     answer: "I min fritid kan jeg godt lide at spille computer eller træne.",
   },
+  {
+    category: "Kæledyr",
+    keywords: ["Hund", "Kæledyr", "Race", "Kattedyr"],
+    answer: "Jeg har en hund der hedder nellie, hun er en Border Collie",
+  },
+
+  {
+    category: "Kæledyr",
+    keywords: ["Kat", "Skilpadde", "Kanin"],
+    answer: "Jeg har ikke en kat skilpadde, eller kanin :(",
+  },
 ];
 
 const topicStats = {
@@ -29,16 +52,33 @@ const topicStats = {
   hobby: 0,
 };
 
+function macthesKeyword(question, keyword) {
+  const searchPattern = new RegExp(`\\b${keyword}\\b`, "i");
+
+  if (question.match(searchPattern) !== null) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function countMatches(keywords, normalizedQuestion) {
   const matches = keywords.filter((keyword) =>
-    normalizedQuestion.includes(keyword),
+    macthesKeyword(normalizedQuestion, keyword),
   );
 
   return matches.length;
 }
 
+function questionTrimming(question) {
+  return question.trim().replace(/\s+/g, " ");
+}
+
 function findBestAnswer(question) {
-  const normalizedQuestion = question.toLowerCase();
+  const cleanedQuestion = questionTrimming(question);
+
+  const normalizedQuestion = cleanedQuestion.toLowerCase();
+
   let bestScore = 0;
   let bestCategory = "";
   let bestAnswer = "Det kan jeg ikke svare på endnu :(";
@@ -84,13 +124,17 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
-app.get("/", (request, response) => {
+app.get("/", async (request, response) => {
+  const messages = await loadMessages();
+
   response.render("index", { messages, error: "", topicStats });
 });
 
-app.post("/ask", (request, response) => {
+app.post("/ask", async (request, response) => {
   const question = request.body.question.trim();
   let error = "";
+
+  const messages = await loadMessages();
 
   if (!question) {
     error = "skriv et spørgsmål!";
@@ -102,6 +146,8 @@ app.post("/ask", (request, response) => {
       topicStats[result.category] = topicStats[result.category] + 1;
     }
   }
+
+  await saveMessages(messages);
 
   response.render("index", { messages, error, topicStats });
 });
