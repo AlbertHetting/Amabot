@@ -1,0 +1,67 @@
+[
+  {
+    "category": "hilsen",
+    "keywords": [
+      "hej",
+      "hallo",
+      "hello",
+      "hey"
+    ],
+    "answer": "Hej! Hvad vil du gerne vide om mig?"
+  },
+  {
+    "category": "navn",
+    "keywords": [
+      "navn",
+      "hedder",
+      "hvem er du"
+    ],
+    "answer": "Jeg hedder Albert. Hvad vil du ellers vide om mig?"
+  },
+  {
+    "category": "bosted",
+    "keywords": [
+      "bor",
+      "by",
+      "fra"
+    ],
+    "answer": "Jeg bor i Lystrup."
+  },
+  {
+    "category": "hobby",
+    "keywords": [
+      "fritid",
+      "hobby",
+      "kan lide"
+    ],
+    "answer": "I min fritid kan jeg godt lide at spille computer eller træne."
+  },
+  {
+    "category": "Kæledyr",
+    "keywords": [
+      "Hund",
+      "Kæledyr",
+      "Race",
+      "Kattedyr"
+    ],
+    "answer": "Jeg har en hund der hedder nellie, hun er en Border Collie"
+  },
+  {
+    "category": "Kæledyr",
+    "keywords": [
+      "Kat",
+      "Skilpadde",
+      "Kanin"
+    ],
+    "answer": "Jeg har ikke en kat skilpadde, eller kanin :("
+  },
+  {
+    "category": "mad",
+    "keywords": [
+      "mad",
+      "spise",
+      "livret"
+    ],
+    "answer": "Min livret er lasagne."
+  }
+]
