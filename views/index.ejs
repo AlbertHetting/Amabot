@@ -42,25 +42,30 @@
 <body>
   <!-- Content -->
   <script src="/js/non-render-blocking-script.js"></script>
-    <section classname="MainBox">
+    <section class="MainBox">
+      <section class="MainBoxFlexer">
 
-        <section classname="InnerBox">
+        <section classn="InnerBox">
             <h1>Chat with my clone!</h1>
         </section>
 
-        <section classname="AskingBox">
-            <form action="/ask" method="POST" class="Submitter">
-                <input id="question" name="question" type="text" placeholder="Ask me anything!">
-                <button type="submit" class="SubmitterButton">Indsend</button>
-            </form>
-             
-              <h2>Spørgsmål fordelt på emner</h2>
-              <ul>
+
+            <h2>Spørgsmål fordelt på emner</h2>
+              <ul class="Categories">
                 <li>Navn: <%= topicStats.navn %></li>
                 <li>Bosted: <%= topicStats.bosted %></li>
                 <li>Fritid: <%= topicStats.fritid %></li>
               </ul>
 
+
+        <section class="AskingBox">
+            <form action="/ask" method="POST" class="Submitter">
+                <input id="question" name="question" type="text" placeholder="Ask me anything!">
+                <button type="submit" class="SubmitterButton">Indsend</button>
+            </form>
+             
+
+            <section class="TextChat">
             <div>
                     <% if (error) { %>
                 <p role="alert"><%= error %></p>
@@ -73,8 +78,10 @@
                 <p><%= message.text %> </p>
            </article>
            <% } %>
+           </section>
 
         </section>
+      </section>
     </section>
 </body>
 </html>

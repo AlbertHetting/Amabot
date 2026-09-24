@@ -21,7 +21,7 @@ body h1 {
 }
 
 input[type="text"] {
-  width: 50%;
+  width: 90%;
   font-family: "Pixelify Sans", sans-serif;
   border-radius: 32px;
   border: 3px solid #eee;
@@ -30,9 +30,26 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+.MainBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainBoxFlexer {
+  width: 35%;
+}
+
+.TextChat {
+  border: 3px solid #eee;
+  padding: 12px;
+  border-radius: 32px;
+}
+
 .Submitter {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 16px;
 }
 
@@ -43,16 +60,66 @@ input[type="text"] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  background-color: transparent;
+  background-color: white;
   cursor: pointer;
+  position: relative;
 
   transition: border 0.25s ease;
 }
 
 .SubmitterButton:hover {
-  border: 5px solid greenyellow;
-  font-weight: bold;
-  transition: 0.25s ease;
+  border-color: transparent;
+}
+
+.SubmitterButton:hover::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 35px;
+  padding: 3px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1),
+    #a00909,
+    rgba(63, 94, 251, 1)
+  );
+  background-size: 200% auto;
+  animation: gradientMove 1.5s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+.SubmitterButton:hover::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 35px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1),
+    #a00909,
+    rgba(63, 94, 251, 1)
+  );
+  background-size: 200% auto;
+  animation: gradientMove 1.5s linear infinite;
+
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .answer {
@@ -92,4 +159,9 @@ input[type="text"] {
   width: fit-content;
   height: fit-content;
   border-radius: 20px;
+}
+
+.Categories {
+  display: flex;
+  gap: 2rem;
 }

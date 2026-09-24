@@ -1,18 +1,18 @@
 [
   {
     "type": "question",
-    "text": "kat"
+    "text": "Hello!"
   },
   {
     "type": "answer",
-    "text": "Jeg har ikke en kat skilpadde, eller kanin :("
+    "text": "Det kan jeg ikke svare på endnu :("
   },
   {
     "type": "question",
-    "text": "kattedyr"
+    "text": "Hello!"
   },
   {
     "type": "answer",
-    "text": "Jeg har en hund der hedder nellie, hun er en Border Collie"
+    "text": "Det kan jeg ikke svare på endnu :("
   }
 ]
