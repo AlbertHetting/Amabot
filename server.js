@@ -4,48 +4,6 @@ import fs from "node:fs/promises";
 const app = express();
 const port = 3000;
 
-async function loadMessages() {
-  const messages = await fs.readFile("./data/messages.json", "utf8");
-  const messageHistory = JSON.parse(messages);
-
-  return messageHistory;
-}
-
-async function saveMessages(messages) {
-  const json = JSON.stringify(messages, null, 2);
-
-  await fs.writeFile("./data/messages.json", json);
-}
-
-const answers = [
-  {
-    category: "navn",
-    keywords: ["navn", "hedder", "hvem er du"],
-    answer: "Jeg hedder Albert. Hvad vil du ellers vide om mig?",
-  },
-  {
-    category: "bosted",
-    keywords: ["bor", "by", "fra"],
-    answer: "Jeg bor i Lystrup.",
-  },
-  {
-    category: "hobby",
-    keywords: ["fritid", "hobby", "kan lide"],
-    answer: "I min fritid kan jeg godt lide at spille computer eller træne.",
-  },
-  {
-    category: "Kæledyr",
-    keywords: ["Hund", "Kæledyr", "Race", "Kattedyr"],
-    answer: "Jeg har en hund der hedder nellie, hun er en Border Collie",
-  },
-
-  {
-    category: "Kæledyr",
-    keywords: ["Kat", "Skilpadde", "Kanin"],
-    answer: "Jeg har ikke en kat skilpadde, eller kanin somkæledyr :(",
-  },
-];
-
 const topicStats = {
   navn: 0,
   bosted: 0,
