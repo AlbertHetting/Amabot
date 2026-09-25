@@ -42,7 +42,7 @@ const answers = [
   {
     category: "Kæledyr",
     keywords: ["Kat", "Skilpadde", "Kanin"],
-    answer: "Jeg har ikke en kat skilpadde, eller kanin :(",
+    answer: "Jeg har ikke en kat skilpadde, eller kanin somkæledyr :(",
   },
 ];
 
