@@ -17,7 +17,7 @@
     document.documentElement.classList.replace('no-js', 'js');
   </script>
 
-    <link rel="stylesheet" href="/assets/styles/styles.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
     <img src="" />
 
   <script src="/js/non-render-blocking-script.js" type="module"></script>
@@ -52,14 +52,14 @@
 
             <h2>Spørgsmål fordelt på emner</h2>
               <ul class="Categories">
-                <li>Navn: <%= topicStats.navn %></li>
-                <li>Bosted: <%= topicStats.bosted %></li>
-                <li>Fritid: <%= topicStats.fritid %></li>
+                <li>Navn: </li>
+                <li>Bosted: </li>
+                <li>Fritid: </li>
               </ul>
 
 
         <section class="AskingBox">
-            <form action="/ask" method="POST" class="Submitter">
+            <form action="/ask" method="POST" class="Submitter" id="question-form">
                 <input id="question" name="question" type="text" placeholder="Ask me anything!">
                 <button type="submit" class="SubmitterButton">Indsend</button>
             </form>
@@ -67,21 +67,21 @@
 
             <section class="TextChat">
             <div>
-                    <% if (error) { %>
-                <p role="alert"><%= error %></p>
-              <% } %>
+                <p role="alert"></p>
             </div>
              
             
-            <% for (const message of messages) { %>
+          
             <article class="<%= message.type %>">
-                <p><%= message.text %> </p>
+                <p> </p>
            </article>
-           <% } %>
            </section>
+
+           <button type="button" id="clear-messages-button">Ryd beskeder</button>
 
         </section>
       </section>
     </section>
+    <script src="app.js" defer></script>
 </body>
 </html>
