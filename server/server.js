@@ -1,11 +1,13 @@
 import express from "express";
-import fs from "node:fs/promises";
 import messagesRouter from "./routes/messages.js";
 import answersRouter from "./routes/answers.js";
+import cors from "cors";
+import { loadAnswers } from "./data/answers.js";
 
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use("/messages", messagesRouter);
 app.use("/answers", answersRouter);
@@ -42,7 +44,9 @@ function questionTrimming(question) {
   return question.trim().replace(/\s+/g, " ");
 }
 
-function findBestAnswer(question) {
+export async function findBestAnswer(question) {
+  const answers = await loadAnswers();
+
   const cleanedQuestion = questionTrimming(question);
 
   const normalizedQuestion = cleanedQuestion.toLowerCase();

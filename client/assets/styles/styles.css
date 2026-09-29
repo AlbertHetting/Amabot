@@ -37,13 +37,14 @@ input[type="text"] {
 }
 
 .MainBoxFlexer {
-  width: 35%;
+  width: 55%;
 }
 
 .TextChat {
   border: 3px solid #eee;
   padding: 12px;
   border-radius: 32px;
+  min-height: 300px;
 }
 
 .Submitter {
@@ -54,6 +55,20 @@ input[type="text"] {
 }
 
 .SubmitterButton {
+  font-family: "Pixelify Sans", sans-serif;
+  border-radius: 32px;
+  border: 3px solid #eee;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+
+  transition: border 0.25s ease;
+}
+
+#RemoverButton {
   font-family: "Pixelify Sans", sans-serif;
   border-radius: 32px;
   border: 3px solid #eee;

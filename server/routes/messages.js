@@ -1,6 +1,7 @@
 import express from "express";
 import { loadMessages } from "../data/messages.js";
 import { saveMessages } from "../data/messages.js";
+import { findBestAnswer } from "../server.js";
 
 const messagesRouter = express.Router();
 
@@ -16,7 +17,7 @@ messagesRouter.post("/", async (request, response) => {
 
   if (!question) {
     console.log("Write a question!");
-    response.json({ error: "skriv spørgsmål før du vælget at sende" });
+    response.json({ error: "skriv spørgsmål før du vælger at sende" });
     return;
   }
 
@@ -27,10 +28,10 @@ messagesRouter.post("/", async (request, response) => {
   };
   messages.push(message);
 
-  result = findBestAnswer(question);
-  answerMessage = {
+  const result = await findBestAnswer(question);
+  const answerMessage = {
     type: "answer",
-    text: answer,
+    text: result.answer,
     createdAt: new Date().toISOString(),
   };
   messages.push(answerMessage);
