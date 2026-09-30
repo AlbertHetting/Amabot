@@ -6,10 +6,24 @@ import { findBestAnswer } from "../server.js";
 const messagesRouter = express.Router();
 
 messagesRouter.get("/", async (request, response) => {
-  const messages = await loadMessages();
-
-  response.json(messages);
+  try {
+    const messages = await loadMessages();
+    response.json(messages);
+  } catch {
+    return response
+      .status(500)
+      .json({ error: "Unable to load any messages from server" });
+  }
 });
+
+function escapeHtml(text) {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
 messagesRouter.post("/", async (request, response) => {
   const messages = await loadMessages();
@@ -23,7 +37,7 @@ messagesRouter.post("/", async (request, response) => {
 
   const message = {
     type: "question",
-    text: question,
+    text: escapeHtml(question),
     createdAt: new Date().toISOString(),
   };
   messages.push(message);
@@ -31,7 +45,7 @@ messagesRouter.post("/", async (request, response) => {
   const result = await findBestAnswer(question);
   const answerMessage = {
     type: "answer",
-    text: result.answer,
+    text: escapeHtml(result.answer),
     createdAt: new Date().toISOString(),
   };
   messages.push(answerMessage);

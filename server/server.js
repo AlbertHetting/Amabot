@@ -7,19 +7,30 @@ import { loadAnswers } from "./data/answers.js";
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({ origin: "http://127.0.0.1:5500" }));
 app.use(express.json());
 app.use("/messages", messagesRouter);
 app.use("/answers", answersRouter);
 
+app.use((req, res) => {
+  res.status(404).json({ error: "Ukendt sti" });
+});
+
+app.use((error, req, res, next) => {
+  console.log(error);
+  res.status(500).json({ error: "intern serverfejl" });
+});
+
 app.listen(port, () => {
-  console.log(`server is running on http://localhost${port}`);
+  console.log(`server is running on http://localhost:${port}`);
 });
 
 const topicStats = {
   navn: 0,
   bosted: 0,
   hobby: 0,
+  kæledyr: 0,
+  about: 0,
 };
 
 function macthesKeyword(question, keyword) {
@@ -75,12 +86,3 @@ export async function findBestAnswer(question) {
     category: bestCategory,
   };
 }
-
-console.log(countMatches(["navn", "hedder", "hvem er du"], "hvad hedder du?")); //1
-
-console.log(
-  countMatches(
-    ["navn", "hedder", "hvem er du"],
-    "hvad hedder du, og hvem er du?",
-  ),
-);
