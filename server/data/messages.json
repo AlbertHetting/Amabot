@@ -8,5 +8,37 @@
     "type": "answer",
     "text": "Hej! Hvad vil du gerne vide om mig?",
     "createdAt": "2026-09-29T13:24:47.231Z"
+  },
+  {
+    "type": "question",
+    "text": "Har du en kæreste?",
+    "createdAt": "2026-09-30T12:07:31.412Z"
+  },
+  {
+    "type": "answer",
+    "text": "Ja, jeg har en kæreste! Hun hedder Clara!",
+    "image": "/client/assets/images/Clara.jpg",
+    "createdAt": "2026-09-30T12:07:31.414Z"
+  },
+  {
+    "type": "question",
+    "text": "Hvilke hobbyer har du?",
+    "createdAt": "2026-09-30T12:14:31.782Z"
+  },
+  {
+    "type": "answer",
+    "text": "Det kan jeg ikke svare på endnu :(",
+    "createdAt": "2026-09-30T12:14:31.783Z"
+  },
+  {
+    "type": "question",
+    "text": "har du en hobby?",
+    "createdAt": "2026-09-30T12:14:38.710Z"
+  },
+  {
+    "type": "answer",
+    "text": "I min fritid kan jeg godt lide at spille computer eller træne.",
+    "image": "./assets/images/KittyW.jpg",
+    "createdAt": "2026-09-30T12:14:38.713Z"
   }
 ]

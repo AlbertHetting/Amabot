@@ -33,6 +33,8 @@ const topicStats = {
   about: 0,
 };
 
+let bestImage = undefined;
+
 function macthesKeyword(question, keyword) {
   const searchPattern = new RegExp(`\\b${keyword}\\b`, "i");
 
@@ -73,6 +75,7 @@ export async function findBestAnswer(question) {
       bestScore = currentScore;
       bestAnswer = answerGroup.answer;
       bestCategory = answerGroup.category;
+      bestImage = answerGroup.image;
     }
   }
 
@@ -84,5 +87,6 @@ export async function findBestAnswer(question) {
   return {
     answer: bestAnswer,
     category: bestCategory,
+    image: bestImage,
   };
 }

@@ -46,6 +46,7 @@ messagesRouter.post("/", async (request, response) => {
   const answerMessage = {
     type: "answer",
     text: escapeHtml(result.answer),
+    image: result.image,
     createdAt: new Date().toISOString(),
   };
   messages.push(answerMessage);

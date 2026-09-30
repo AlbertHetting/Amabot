@@ -82,6 +82,50 @@ input[type="text"] {
   transition: border 0.25s ease;
 }
 
+#RemoverButton:hover {
+  border-color: transparent;
+}
+
+#RemoverButton:hover::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 35px;
+  padding: 3px;
+
+  background: linear-gradient(
+    90deg,
+    rgb(143, 16, 16),
+    #a00909,
+    rgb(255, 87, 87)
+  );
+  background-size: 200% auto;
+  animation: gradientMove 1.5s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+#RemoverButton:hover::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 35px;
+
+  background: linear-gradient(90deg, rgb(251, 63, 63), #a00909, rgb(48, 2, 2));
+  background-size: 200% auto;
+  animation: gradientMove 1.5s linear infinite;
+
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
 .SubmitterButton:hover {
   border-color: transparent;
 }
@@ -179,4 +223,9 @@ input[type="text"] {
 .Categories {
   display: flex;
   gap: 2rem;
+}
+
+.ExtraImage {
+  border-radius: 20px;
+  max-width: 300px;
 }

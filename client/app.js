@@ -50,13 +50,17 @@ clearMessagesButton.addEventListener("click", async () => {
 });
 
 function displayMessage(message) {
+  let imageHtml = "";
+  if (message.image) {
+    imageHtml = `<img src="${message.image}" alt="Bot billede" class="ExtraImage"/>`;
+  }
+
   const html = /*html*/ `
     <article class="${message.type}">
       <p>${message.text}</p>
-    </article>`;
+    </article>
+    ${imageHtml}`;
 
   messagesContainer.insertAdjacentHTML("beforeend", html);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
-
-displayMessage();

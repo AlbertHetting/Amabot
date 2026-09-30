@@ -1,67 +1,82 @@
 [
   {
     "category": "hilsen",
-    "keywords": [
-      "hej",
-      "hallo",
-      "hello",
-      "hey"
-    ],
+    "keywords": ["hej", "hallo", "hello", "hey"],
     "answer": "Hej! Hvad vil du gerne vide om mig?"
   },
   {
     "category": "navn",
-    "keywords": [
-      "navn",
-      "hedder",
-      "hvem er du"
-    ],
+    "keywords": ["navn", "hedder", "hvem er du"],
     "answer": "Jeg hedder Albert. Hvad vil du ellers vide om mig?"
   },
   {
     "category": "bosted",
-    "keywords": [
-      "bor",
-      "by",
-      "fra"
-    ],
+    "keywords": ["bor", "by", "fra"],
     "answer": "Jeg bor i Lystrup."
   },
   {
     "category": "hobby",
-    "keywords": [
-      "fritid",
-      "hobby",
-      "kan lide"
-    ],
+    "keywords": ["fritid", "hobby", "kan lide"],
+    "image": "./assets/images/KittyW.jpg",
     "answer": "I min fritid kan jeg godt lide at spille computer eller træne."
   },
   {
     "category": "Kæledyr",
-    "keywords": [
-      "Hund",
-      "Kæledyr",
-      "Race",
-      "Kattedyr"
-    ],
-    "answer": "Jeg har en hund der hedder nellie, hun er en Border Collie"
+    "keywords": ["Hund", "Kæledyr", "Race", "Kattedyr"],
+    "image": "./assets/images/Nellie.jpg",
+    "answer": "Jeg har en hund der hedder Nellie, hun er en Border Collie."
   },
   {
-    "category": "Kæledyr",
-    "keywords": [
-      "Kat",
-      "Skilpadde",
-      "Kanin"
-    ],
-    "answer": "Jeg har ikke en kat skilpadde, eller kanin :("
+    "category": "alder",
+    "keywords": ["alder", "gammel", "år"],
+    "answer": "Jeg er 23 år gammel."
   },
   {
-    "category": "mad",
+    "category": "computer",
+    "keywords": ["computer", "pc", "specs", "setup", "grafikkort", "ryzen"],
+    "answer": "Jeg bygger mine egne computere! Lige nu kører jeg med en Ryzen 9 9950X3D og et RTX 4090 grafikkort på en LG UltraGear ultrawide skærm."
+  },
+  {
+    "category": "spil",
+    "keywords": ["spil", "gaming", "csgo", "pubg", "minecraft", "spiller"],
+    "image": "./assets/images/GamerDawg.jpg",
+    "answer": "Jeg har spillet tusindvis af timer i CS:GO og PUBG, men jeg hygger mig også med spil som Minecraft, Palworld og Sea of Stars."
+  },
+  {
+    "category": "træning",
     "keywords": [
-      "mad",
-      "spise",
-      "livret"
+      "træning",
+      "gym",
+      "fitness",
+      "styrketræning",
+      "løfter",
+      "dødløft",
+      "pull-ups"
     ],
-    "answer": "Min livret er lasagne."
+    "answer": "Jeg styrketræner meget og har været i gang i over syv år. Jeg er især glad for dødløft og weighted pull-ups."
+  },
+  {
+    "category": "kæreste",
+    "keywords": ["kæreste", "dame"],
+    "image": "./assets/images/Clara.jpg",
+    "answer": "Ja, jeg har en kæreste! Hun hedder Clara!"
+  },
+  {
+    "category": "arbejde",
+    "keywords": [
+      "kode",
+      "programmering",
+      "redigering",
+      "video",
+      "webudvikling",
+      "studie"
+    ],
+    "answer": "Jeg studerer webudvikling og koder i JavaScript, Node og React. Jeg arbejder også meget med videoredigering i Premiere Pro og After Effects, og har studiejob hos WiFi NOW."
+  },
+  {
+    "category": "anime",
+    "keywords": ["anime", "serier", "demon slayer", "hunter"],
+    "image": "./assets/images/Tnajiro.webp",
+    "answer": "Jeg ser en del anime. Mine absolutte favoritter er nok Demon Slayer og Hunter x Hunter, tæt på kommer også Attack on Titan og Summertime Rendering"
   }
 ]
